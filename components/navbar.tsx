@@ -39,7 +39,7 @@ export default function Navbar() {
         </SheetContent>
       </Sheet>
       <Link className="mr-6 hidden lg:flex" href="#">
-        <Image src="/logo.png" alt="logo" width={50} height={50} /> 
+        <Image src="/logo.png" alt="logo" width={50} height={0} /> 
         <span className="sr-only">Acme Inc</span>
       </Link>
       <nav className="ml-auto hidden lg:flex gap-6">
