@@ -1,0 +1,47 @@
+export const projects = [
+    {
+        title: "Personal PortFolio",
+        duration: "June 2024 - July 2024",
+        description: "dsfghyjuklio;liuythrfedwsdfgrhyjuklikjhgfdssdfgh",
+        tags: ["Next.js", "Typescript", "TailwindCSS", "Shadcn UI", "Magic UI"],
+        image: "/profile.jpeg",
+        website: "#",
+        source:"#"
+    },
+    {
+        title: "WorkSpace",
+        duration: "May 2024 - June 2024",
+        description: "Designed, developed a place where User can manage their plans and make note of anything.",
+        tags: ["Next.js", "Typescript", "convex", "clerk", "TailwindCSS", "Shadcn UI"],
+        image: "/profile.jpeg",
+        website: "#",
+        source: "#",
+    },
+    {
+        title: "TapBio",
+        duration: "March 2024 - April 2024",
+        description: "Designed a clean , user-friendly interface allowing users to easily create and mange their bio link pages without technical expertise",
+        tags: ["Next.js", "Typescript", "Nodejs", "MongoDB", "Shadcn UI"],
+        image: "/profile.jpeg",
+        website: "#",
+        source: "#",
+    },
+    {
+        title: "Global Brief",
+        duration: "July 2023 - Aug 2023",
+        description: "Designed, developed a place where User can manage their plans and make note of anything.",
+        tags: ["Next.js", "Typescript", "Api", "GraphQL", "TailwindCSS", "Shadcn UI"],
+        image: "/profile.jpeg",
+        website: "#",
+        source: "#",
+    },
+    {
+        title: "Med Pro",
+        duration: "July 2023 - Aug 2023",
+        description: "Build a web app using django and various models to predict the types of possible diseases and various tumor detection",
+        tags: ["Html", "Javascript", "Django", "Machine Learning", "TailwindCSS"],
+        image: "/profile.jpeg",
+        website: "#",
+        source: "#",
+    },
+]
