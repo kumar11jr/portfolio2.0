@@ -16,7 +16,7 @@ const Typewriter: React.FC<{ texts: string[] }> = ({ texts }) => {
         if (displayText.length < texts[index].length) {
           setDisplayText(texts[index].substring(0, displayText.length + 1));
         } else {
-          setTimeout(() => setTypingDirection('erasing'), 1000); // Wait 1 second before starting to erase
+          setTimeout(() => setTypingDirection('erasing'), 1000); 
         }
       } else {
         if (displayText.length > 0) {
