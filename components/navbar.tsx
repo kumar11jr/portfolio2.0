@@ -3,112 +3,117 @@ import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet"
 import Link from "next/link"
 import { ModeToggle } from "./mode-toggle"
 import Image from "next/image"
+import { Menu, Sparkles } from "lucide-react"
 
 export default function Navbar() {
   return (
-    <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6">
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button className="lg:hidden" size="icon" variant="outline">
-            <MenuIcon className="h-6 w-6" />
-            <span className="sr-only">Toggle navigation menu</span>
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left">
-          <Link className="mr-6 hidden lg:flex" href="#">
-          <Image src="/logo.png" alt="logo" width={50} height={0} /> 
-            <span className="sr-only">KR18</span>
-          </Link>
-          <div className="grid gap-2 py-6">
-            <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/">
-              Home
+    <header className="sticky top-0 z-50 w-full">
+      {/* Backdrop blur overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-purple-900/20 to-fuchsia-900/10 backdrop-blur-xl border-b border-violet-400/20" />
+      
+      <div className="relative flex h-20 w-full items-center px-4 md:px-6">
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button 
+              className="lg:hidden bg-gradient-to-r from-violet-500/20 to-purple-500/20 border-violet-400/30 text-violet-300 hover:from-violet-500/30 hover:to-purple-500/30 hover:border-violet-400/50 hover:text-white transition-all duration-300" 
+              size="icon" 
+              variant="outline"
+            >
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="left" className="bg-gradient-to-br from-slate-900/95 via-purple-900/30 to-fuchsia-900/20 backdrop-blur-xl border-violet-400/20">
+            <Link className="flex items-center gap-2 mb-6" href="/">
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-gradient-to-br from-violet-500 to-purple-600 p-0.5 shadow-lg shadow-violet-500/30">
+                <div className="w-full h-full rounded-xl bg-slate-900 flex items-center justify-center">
+                  <Image src="/logo.png" alt="logo" width={40} height={40} className="rounded-lg" /> 
+                </div>
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-violet-400 to-purple-400 bg-clip-text text-transparent">
+                Portfolio
+              </span>
             </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/about">
-              About
-            </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/service">
-              Skills
-            </Link>
-            <Link className="flex w-full items-center py-2 text-lg font-semibold" href="/contact">
-              Contact
-            </Link>
-              <ModeToggle />
             
+            <div className="grid gap-3 py-6">
+              <Link className="group flex w-full items-center py-3 px-4 text-lg font-semibold rounded-xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-400/20 text-slate-200 hover:from-violet-500/20 hover:to-purple-500/20 hover:border-violet-400/40 hover:text-white transition-all duration-300" href="/">
+                <Sparkles className="w-4 h-4 mr-3 text-violet-400 group-hover:animate-pulse" />
+                Home
+              </Link>
+              <Link className="group flex w-full items-center py-3 px-4 text-lg font-semibold rounded-xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-400/20 text-slate-200 hover:from-violet-500/20 hover:to-purple-500/20 hover:border-violet-400/40 hover:text-white transition-all duration-300" href="/about">
+                <div className="w-4 h-4 mr-3 rounded-full bg-gradient-to-r from-violet-400 to-purple-400" />
+                About
+              </Link>
+              <Link className="group flex w-full items-center py-3 px-4 text-lg font-semibold rounded-xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-400/20 text-slate-200 hover:from-violet-500/20 hover:to-purple-500/20 hover:border-violet-400/40 hover:text-white transition-all duration-300" href="/service">
+                <div className="w-4 h-4 mr-3 rounded bg-gradient-to-r from-purple-400 to-fuchsia-400" />
+                Skills
+              </Link>
+              <Link className="group flex w-full items-center py-3 px-4 text-lg font-semibold rounded-xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-400/20 text-slate-200 hover:from-violet-500/20 hover:to-purple-500/20 hover:border-violet-400/40 hover:text-white transition-all duration-300" href="/contact">
+                <div className="w-4 h-4 mr-3 rounded-full bg-gradient-to-r from-fuchsia-400 to-violet-400" />
+                Contact
+              </Link>
+              
+              <div className="mt-4 pt-4 border-t border-violet-400/20">
+                <ModeToggle />
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
+
+        {/* Desktop Logo */}
+        <Link className="mr-6 hidden lg:flex items-center gap-3 group" href="/">
+          <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-gradient-to-br from-violet-500 to-purple-600 p-0.5 shadow-lg shadow-violet-500/30 group-hover:shadow-violet-500/50 transition-all duration-300">
+            <div className="w-full h-full rounded-xl bg-slate-900 flex items-center justify-center">
+              <Image src="/logo.png" alt="logo" width={40} height={40} className="rounded-lg group-hover:scale-110 transition-transform duration-300" /> 
+            </div>
           </div>
-        </SheetContent>
-      </Sheet>
-      <Link className="mr-6 hidden lg:flex" href="#">
-        <Image src="/logo.png" alt="logo" width={50} height={0} /> 
-        <span className="sr-only">KR18</span>
-      </Link>
-      <nav className="ml-auto hidden lg:flex gap-6">
-        <Link
-          className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-          href="/"
-        >
-          Home
+          <div className="flex flex-col">
+            <span className="text-xl font-bold bg-gradient-to-r from-violet-400 via-purple-400 to-fuchsia-400 bg-clip-text text-transparent">
+              Prabhat Kumar
+            </span>
+            <span className="text-xs text-violet-300/80 font-medium">Full Stack Developer</span>
+          </div>
         </Link>
-        <Link
-          className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-          href="/about"
-        >
-          About
-        </Link>
-        <Link
-          className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-          href="/service"
-        >
-          Skills
-        </Link>
-        <Link
-          className="group inline-flex h-9 w-max items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-medium transition-colors hover:bg-gray-100 hover:text-gray-900 focus:bg-gray-100 focus:text-gray-900 focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-          href="/contact"
-        >
-          Contact
-        </Link>
-        <ModeToggle />
-      </nav>
+
+        {/* Desktop Navigation */}
+        <nav className="ml-auto hidden lg:flex gap-2 items-center">
+          <Link
+            className="group relative px-6 py-2.5 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-400/20 text-slate-200 hover:from-violet-500/20 hover:to-purple-500/20 hover:border-violet-400/40 hover:text-white text-sm font-semibold transition-all duration-300 hover:scale-105"
+            href="/"
+          >
+            <span className="relative z-10">Home</span>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </Link>
+          
+          <Link
+            className="group relative px-6 py-2.5 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-400/20 text-slate-200 hover:from-violet-500/20 hover:to-purple-500/20 hover:border-violet-400/40 hover:text-white text-sm font-semibold transition-all duration-300 hover:scale-105"
+            href="/about"
+          >
+            <span className="relative z-10">About</span>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </Link>
+          
+          <Link
+            className="group relative px-6 py-2.5 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-400/20 text-slate-200 hover:from-violet-500/20 hover:to-purple-500/20 hover:border-violet-400/40 hover:text-white text-sm font-semibold transition-all duration-300 hover:scale-105"
+            href="/service"
+          >
+            <span className="relative z-10">Skills</span>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </Link>
+          
+          <Link
+            className="group relative px-6 py-2.5 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-400/20 text-slate-200 hover:from-violet-500/20 hover:to-purple-500/20 hover:border-violet-400/40 hover:text-white text-sm font-semibold transition-all duration-300 hover:scale-105"
+            href="/contact"
+          >
+            <span className="relative z-10">Contact</span>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-violet-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          </Link>
+          
+          <div className="ml-4 pl-4 border-l border-violet-400/20">
+            <ModeToggle />
+          </div>
+        </nav>
+      </div>
     </header>
-  )
-}
-
-function MenuIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <line x1="4" x2="20" y1="12" y2="12" />
-      <line x1="4" x2="20" y1="6" y2="6" />
-      <line x1="4" x2="20" y1="18" y2="18" />
-    </svg>
-  )
-}
-
-
-function MountainIcon(props:any) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-    </svg>
   )
 }
