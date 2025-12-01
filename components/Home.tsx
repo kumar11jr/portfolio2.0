@@ -64,7 +64,7 @@ const Home: React.FC = () => {
   const router = useRouter(); 
 
   const handleDownloadResume = () => {
-    window.open('https://drive.google.com/file/d/1faKt9aSV5bXxiSsBtBw_zJxqiXwJS-gu/view?usp=drivesdk', '_blank');
+    window.open('https://drive.google.com/file/d/1t4KLuusdrpZe3lgaL669fnFd262HD5W_/view?usp=sharing', '_blank');
   }
 
   return (
